@@ -1,0 +1,61 @@
+
+%CPU %MEM CMD
+35.0  0.2 python /app/stress.py
+Linux 6.8.0-60-generic (EliteBook-Folio) 	06/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+11:44:57     1000     48942  314,00    2,00    0,00    2,00  316,00     2   5776,00      5,00  284932   59936   0,76  python
+%CPU %MEM CMD
+37.0  0.2 python /app/stress.py
+Linux 6.8.0-60-generic (EliteBook-Folio) 	06/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+11:45:10     1000     49288  326,00    3,00    0,00   13,00  329,00     1   5189,00      0,00  284932   59848   0,76  python
+%CPU %MEM CMD
+ 0.0  0.2 python /app/stress.py
+Linux 6.8.0-60-generic (EliteBook-Folio) 	06/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+11:45:22     1000     49625  351,00    3,00    0,00    1,00  354,00     2   5772,00      0,00  284932   59824   0,76  python
+%CPU %MEM CMD
+39.0  0.2 python /app/stress.py
+Linux 6.8.0-60-generic (EliteBook-Folio) 	06/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+11:45:35     1000     49924  368,00    1,00    0,00    3,00  369,00     3   5449,00      0,00  284932   59764   0,76  python
+%CPU %MEM CMD
+34.0  0.2 python /app/stress.py
+Linux 6.8.0-60-generic (EliteBook-Folio) 	06/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+11:45:48     1000     50251  339,00    3,00    0,00    1,00  342,00     0   6282,00      0,00  284932   60076   0,76  python
+%CPU %MEM CMD
+ 0.0  0.2 python /app/stress.py
+Linux 6.8.0-60-generic (EliteBook-Folio) 	06/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+11:46:00     1000     50563  353,47    2,97    0,00    0,99  356,44     3   5671,29      0,00  284932   60024   0,76  python
+%CPU %MEM CMD
+41.0  0.2 python /app/stress.py
+Linux 6.8.0-60-generic (EliteBook-Folio) 	06/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+11:46:13     1000     50920  362,38    2,97    0,00    0,00  365,35     3   5710,89      0,00  284932   60024   0,76  python
+%CPU %MEM CMD
+36.0  0.2 python /app/stress.py
+Linux 6.8.0-60-generic (EliteBook-Folio) 	06/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+11:46:26     1000     51236  351,49    3,96    0,00    1,98  355,45     2   5702,97      0,00  284932   60272   0,76  python
+%CPU %MEM CMD
+ 0.0  0.2 python /app/stress.py
+Linux 6.8.0-60-generic (EliteBook-Folio) 	06/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+11:46:39     1000     51549  345,00    3,00    0,00    3,00  348,00     2   6282,00      0,00  284932   59792   0,76  python
+%CPU %MEM CMD
+ 0.0  0.2 python /app/stress.py
+Linux 6.8.0-60-generic (EliteBook-Folio) 	06/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+11:46:51     1000     51878  353,47    1,98    0,00    2,97  355,45     2   5192,08      0,00  284932   60136   0,76  python

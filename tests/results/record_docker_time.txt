@@ -1,0 +1,20 @@
+66da083c63bef96403ec8d2cba2a843e3b38166c16786217e40d1a0e052576bb
+Elapsed time: 1.18 seconds
+bc16fb4f84a68ffac7b8d199afd1186684932e61071e59d7b37589615d5bfd51
+Elapsed time: 0.99 seconds
+574ce963a04491ab7ef4ffaf452f1b8876b4fef6f1c008aedba73d01407008ec
+Elapsed time: 0.98 seconds
+b6fed1512bc1937543a7c8b66d9ea038fe5c4d41fe76195661c442d364050a2f
+Elapsed time: 0.98 seconds
+97e0067b47893c24207b317800d811c6a0f5243d61ea792ddc15151d3be334e7
+Elapsed time: 0.95 seconds
+c923bcffc48c0a95dfb65cb35c10bf420a12f80f8ec37443917dfcfede5e55a6
+Elapsed time: 1.01 seconds
+02d3265f82bbbc4b3b5ca0e6571574b205319b6b39739ab430c8f96cf48d53e3
+Elapsed time: 0.99 seconds
+cceef7dd5da631588dcd43adb32b7f2ec3730f1ef8e7bb02fa9c3a69cc91f1cf
+Elapsed time: 0.96 seconds
+4cdf68f88d29ef2eba6f225611d866ff2059f302074d255df4e1e99135a8b081
+Elapsed time: 1.01 seconds
+50f35a5a5da15f5f54cf343d1b1e1559ffe2e67a0dc0e010cfa23507e41f85cc
+Elapsed time: 0.96 seconds
