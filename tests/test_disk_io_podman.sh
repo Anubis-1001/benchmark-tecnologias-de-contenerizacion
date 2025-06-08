@@ -21,4 +21,5 @@ do
 	    | grep -A 5 "clat percentiles" >> record_disk_io_podman.txt 2>&1
 
 	podman volume rm diskio-test-vol
+	sleep 2;
 done

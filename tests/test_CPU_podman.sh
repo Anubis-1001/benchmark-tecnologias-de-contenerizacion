@@ -1,15 +1,20 @@
 #!/bin/bash
 
-podman stop test-container
-podman rm test-container
 
-podman run -itd --name test-container test-stress
+for x in {1..10}
+do
+	podman stop test-container
+	podman rm test-container
 
-PID=$(podman inspect -f '{{.State.Pid}}' test-container)
+	podman run -itd --name test-container test-stress
 
-ps -p $PID -o %cpu,%mem,cmd | tee -a record_podman.txt 
+	PID=$(podman inspect -f '{{.State.Pid}}' test-container)
 
-pidstat -h -r -u -p $PID 1 1 | tee -a record_podman.txt
+	ps -p $PID -o %cpu,%mem,cmd | tee -a record_podman.txt 
 
-podman stop test-container
-podman rm test-container
+	pidstat -h -r -u -p $PID 1 1 | tee -a record_podman.txt
+
+	podman stop test-container
+	podman rm test-container
+	sleep 2;
+done
