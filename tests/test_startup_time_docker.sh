@@ -13,7 +13,7 @@ for i in $(seq 1 $REPEATS); do
 
     /usr/bin/time -f "Elapsed time: %e seconds"  \
     docker run -itd --rm --name $CONTAINER_NAME $IMAGE_NAME \
-    >> record_docker_time.txt 2>&1
+    >> record_time_docker.txt 2>&1
 
     docker stop $CONTAINER_NAME
     sleep 2

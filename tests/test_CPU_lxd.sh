@@ -1,0 +1,33 @@
+#!/bin/bash
+
+IMAGE="ubuntu:22.04"
+
+
+lxc launch $IMAGE test-container
+sleep 3
+lxc exec test-container -- bash -c "apt-get update && apt-get install -y python3 python3-pip && pip3 install numpy"
+
+lxc file push ../assets/stress.py test-container/root/cpu_test.py
+
+
+for x in {1..10}
+do
+    lxc exec test-container -- bash -c "python3 /root/cpu_test.py &"
+
+    sleep 2 
+
+    PID=$( lxc exec test-container -- bash -c "pgrep python3 /root/cpu_test.py" )
+    echo $PID=================================================
+    echo "Iteration $x - Container PID: $PID" | tee -a record_lxd.txt
+
+    lxc exec test-container -- bash -c "ps -p $PID -o %cpu,%mem,cmd" | tee -a record_lxd.txt
+
+    pidstat -h -r -u -p $PID 1 1 | tee -a record_lxd.txt
+
+    lxc exec test-container -- bash -c "pkill cpu_test"
+
+    sleep 2
+done
+
+lxc stop test-container --force
+lxc delete test-container
