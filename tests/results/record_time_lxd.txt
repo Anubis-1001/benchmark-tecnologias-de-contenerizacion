@@ -1,0 +1,20 @@
+Launching test-time
+Retrieving image: Unpacking image: 100% (515.00MB/s)                                                     Retrieving image: Unpacking image: 100% (515.00MB/s)                                                     Elapsed time: 39.99 seconds
+Launching test-time
+Retrieving image: Unpacking image: 100% (1.36GB/s)                                                   Elapsed time: 11.46 seconds
+Launching test-time
+Retrieving image: Unpacking image: 100% (1.20GB/s)                                                   Elapsed time: 10.63 seconds
+Launching test-time
+Retrieving image: Unpacking image: 100% (1.21GB/s)                                                   Retrieving image: Unpacking image: 100% (1.21GB/s)                                                   Elapsed time: 10.84 seconds
+Launching test-time
+Retrieving image: Unpacking image: 100% (1.01GB/s)                                                   Retrieving image: Unpacking image: 100% (1.01GB/s)                                                   Elapsed time: 10.51 seconds
+Launching test-time
+Retrieving image: Unpacking image: 100% (1.25GB/s)                                                   Elapsed time: 10.73 seconds
+Launching test-time
+Retrieving image: Unpacking image: 100% (851.24MB/s)                                                     Retrieving image: Unpacking image: 100% (851.24MB/s)                                                     Elapsed time: 10.88 seconds
+Launching test-time
+Retrieving image: Unpacking image: 100% (1.02GB/s)                                                   Retrieving image: Unpacking image: 100% (1.02GB/s)                                                   Elapsed time: 10.46 seconds
+Launching test-time
+Retrieving image: Unpacking image: 100% (1.09GB/s)                                                   Retrieving image: Unpacking image: 100% (1.09GB/s)                                                   Elapsed time: 10.37 seconds
+Launching test-time
+Retrieving image: Unpacking image: 100% (548.60MB/s)                                                     Retrieving image: Unpacking image: 100% (548.60MB/s)                                                     Elapsed time: 11.29 seconds
