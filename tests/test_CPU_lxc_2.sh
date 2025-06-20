@@ -1,7 +1,6 @@
-#!/bin/bash
 
 CONTAINER_NAME="test-container"
-TEMPLATE="ubuntu"  
+TEMPLATE="ubuntu"
 
 for x in {1..10}
 do
@@ -11,12 +10,19 @@ do
     sudo lxc-destroy -n $CONTAINER_NAME 2>/dev/null
 
     sudo lxc-create -n $CONTAINER_NAME -t $TEMPLATE
-
     sudo lxc-start -n $CONTAINER_NAME -d
-    sleep 2 
+
+    sudo lxc-attach -n $CONTAINER_NAME -- bash -c "
+        apt update &&
+        DEBIAN_FRONTEND=noninteractive apt install -y python3 python3-pip &&
+        pip3 install numpy
+    "
+
+    sudo cp ../assets/stress.py /var/lib/lxc/$CONTAINER_NAME/rootfs/root/
+
+    sudo lxc-attach -n $CONTAINER_NAME -- bash -c "python3 /root/stress.py &"
 
     PID=$(sudo lxc-info -n $CONTAINER_NAME -pH)
-
     echo "PID: $PID" | tee -a record_lxc.txt
 
     ps -p $PID -o comm,%cpu,%mem,cmd | tee -a record_lxc.txt
@@ -27,3 +33,4 @@ do
 
     sleep 2
 done
+
