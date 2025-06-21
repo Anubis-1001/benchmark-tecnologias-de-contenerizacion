@@ -1,0 +1,100 @@
+[INFO] Starting iteration 1
+[vie 20 jun 2025 13:24:43 -05] Iteration 1
+[vie 20 jun 2025 13:24:44 -05] Waiting for container to boot...
+PID inside container: 97
+    PID COMMAND         %CPU %MEM CMD
+     97 python3          0.0  0.7 python3 /root/stress.py
+Linux 6.8.0-60-generic (test-container) 	20/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+18:24:51        0        97  277,23    1,98    0,00   39,60  279,21     0      0,00      0,00  294136   60104   0,76  python3
+[INFO] Starting iteration 2
+[vie 20 jun 2025 13:24:54 -05] Iteration 2
+[vie 20 jun 2025 13:24:54 -05] Waiting for container to boot...
+PID inside container: 97
+    PID COMMAND         %CPU %MEM CMD
+     97 python3          0.0  0.7 python3 /root/stress.py
+Linux 6.8.0-60-generic (test-container) 	20/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+18:25:01        0        97  295,00    2,00    0,00   38,00  297,00     3      0,00      0,00  294136   59860   0,76  python3
+[INFO] Starting iteration 3
+[vie 20 jun 2025 13:25:05 -05] Iteration 3
+[vie 20 jun 2025 13:25:05 -05] Waiting for container to boot...
+PID inside container: 97
+    PID COMMAND         %CPU %MEM CMD
+     97 python3          0.0  0.7 python3 /root/stress.py
+Linux 6.8.0-60-generic (test-container) 	20/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+18:25:12        0        97  246,53    1,98    0,00   50,50  248,51     2      0,00      0,00  294136   59652   0,75  python3
+[INFO] Starting iteration 4
+[vie 20 jun 2025 13:25:15 -05] Iteration 4
+[vie 20 jun 2025 13:25:16 -05] Waiting for container to boot...
+PID inside container: 97
+    PID COMMAND         %CPU %MEM CMD
+     97 python3          0.0  0.7 python3 /root/stress.py
+Linux 6.8.0-60-generic (test-container) 	20/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+18:25:23        0        97  232,67    0,99    0,00   18,81  233,66     3      0,00      0,00  294136   59664   0,75  python3
+[INFO] Starting iteration 5
+[vie 20 jun 2025 13:25:26 -05] Iteration 5
+[vie 20 jun 2025 13:25:26 -05] Waiting for container to boot...
+PID inside container: 97
+    PID COMMAND         %CPU %MEM CMD
+     97 python3          0.0  0.7 python3 /root/stress.py
+Linux 6.8.0-60-generic (test-container) 	20/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+18:25:34        0        97  337,00    0,00    0,00   18,00  337,00     0      0,00      0,00  294136   59684   0,75  python3
+[INFO] Starting iteration 6
+[vie 20 jun 2025 13:25:37 -05] Iteration 6
+[vie 20 jun 2025 13:25:37 -05] Waiting for container to boot...
+PID inside container: 97
+    PID COMMAND         %CPU %MEM CMD
+     97 python3          0.0  0.7 python3 /root/stress.py
+Linux 6.8.0-60-generic (test-container) 	20/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+18:25:44        0        97  348,51    0,99    0,00   11,88  349,50     3      0,00      0,00  294136   59796   0,76  python3
+[INFO] Starting iteration 7
+[vie 20 jun 2025 13:25:47 -05] Iteration 7
+[vie 20 jun 2025 13:25:47 -05] Waiting for container to boot...
+PID inside container: 97
+    PID COMMAND         %CPU %MEM CMD
+     97 python3          0.0  0.7 python3 /root/stress.py
+Linux 6.8.0-60-generic (test-container) 	20/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+18:25:55        0        97  349,00    1,00    0,00   15,00  350,00     1      0,00      0,00  294136   59976   0,76  python3
+[INFO] Starting iteration 8
+[vie 20 jun 2025 13:25:58 -05] Iteration 8
+[vie 20 jun 2025 13:25:58 -05] Waiting for container to boot...
+PID inside container: 97
+    PID COMMAND         %CPU %MEM CMD
+     97 python3          0.0  0.7 python3 /root/stress.py
+Linux 6.8.0-60-generic (test-container) 	20/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+18:26:05        0        97  216,83    0,99    0,00   58,42  217,82     1      0,00      0,00  294136   59536   0,75  python3
+[INFO] Starting iteration 9
+[vie 20 jun 2025 13:26:09 -05] Iteration 9
+[vie 20 jun 2025 13:26:09 -05] Waiting for container to boot...
+PID inside container: 97
+    PID COMMAND         %CPU %MEM CMD
+     97 python3          0.0  0.7 python3 /root/stress.py
+Linux 6.8.0-60-generic (test-container) 	20/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+18:26:17        0        97  223,76    0,99    0,00   48,51  224,75     0      0,00      0,00  294136   60068   0,76  python3
+[INFO] Starting iteration 10
+[vie 20 jun 2025 13:26:20 -05] Iteration 10
+[vie 20 jun 2025 13:26:20 -05] Waiting for container to boot...
+PID inside container: 97
+    PID COMMAND         %CPU %MEM CMD
+     97 python3          0.0  0.7 python3 /root/stress.py
+Linux 6.8.0-60-generic (test-container) 	20/06/25 	_x86_64_	(4 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+18:26:28        0        97  285,00    1,00    0,00    3,00  286,00     2      0,00      0,00  294136   59880   0,76  python3
