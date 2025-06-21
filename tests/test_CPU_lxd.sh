@@ -17,12 +17,8 @@ do
     sleep 3
 
     PID=$( lxc exec test-container -- bash -c "pgrep python3" )
-    echo $PID=================================================
-    echo "Iteration $x - Container PID: $PID" | tee -a record_lxd.txt
 
-    lxc exec test-container -- bash -c "ps -p $PID -o %cpu,%mem,cmd" | tee -a record_lxd.txt
-
-    lxc exec test-container -- bash -c "pidstat -h -r -u -p $PID 1 1" | tee -a record_lxd.txt
+    lxc exec test-container -- bash -c "pidstat -h -r -u -p $PID 1 1" | tee -a record_CPU_lxd.txt
 
     lxc exec test-container -- bash -c "kill -9 $PID"
 

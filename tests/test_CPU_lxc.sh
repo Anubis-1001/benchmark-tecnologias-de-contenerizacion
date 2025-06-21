@@ -1,29 +1,58 @@
 #!/bin/bash
 
-CONTAINER_NAME="test-container"
-TEMPLATE="ubuntu"  
+BASE_NAME="base-container"
+SNAPSHOT_NAME="test-container"
+TEMPLATE="ubuntu"
+STRESS_SCRIPT="../assets/stress.py"
+LOG_FILE="record_CPU_lxc.txt"
 
-for x in {1..10}
-do
-    echo "[$(date)] Iteration $x" | tee -a record_lxc.txt
+if ! sudo lxc-info -n $BASE_NAME &>/dev/null; then
+    echo "[INFO] Creating base container '$BASE_NAME'"
+    sudo lxc-create -n $BASE_NAME -t $TEMPLATE
+    sudo lxc-start -n $BASE_NAME -d
+    sleep 5
 
-    sudo lxc-stop -n $CONTAINER_NAME 2>/dev/null
-    sudo lxc-destroy -n $CONTAINER_NAME 2>/dev/null
+    echo "[INFO] Installing dependencies..."
+    sudo lxc-attach -n $BASE_NAME -- bash -c "
+        apt update &&
+        DEBIAN_FRONTEND=noninteractive apt install -y python3 python3-pip sysstat &&
+        pip3 install numpy
+    "
 
-    sudo lxc-create -n $CONTAINER_NAME -t $TEMPLATE
+    echo "[INFO] Copying stress.py"
+    sudo cp "$STRESS_SCRIPT" "/var/lib/lxc/$BASE_NAME/rootfs/root/"
 
-    sudo lxc-start -n $CONTAINER_NAME -d
-    sleep 2 
+    sudo lxc-stop -n $BASE_NAME
+    echo "[INFO] Base container setup complete."
+fi
 
-    PID=$(sudo lxc-info -n $CONTAINER_NAME -pH)
+for i in {1..10}; do
 
-    echo "PID: $PID" | tee -a record_lxc.txt
+    sudo lxc-stop -n $SNAPSHOT_NAME 2>/dev/null
+    sudo lxc-destroy -n $SNAPSHOT_NAME 2>/dev/null
 
-    ps -p $PID -o comm,%cpu,%mem,cmd | tee -a record_lxc.txt
-    pidstat -h -r -u -p $PID 1 1 | tee -a record_lxc.txt
+    sudo lxc-copy -n $BASE_NAME -N $SNAPSHOT_NAME -s
+    sudo lxc-start -n $SNAPSHOT_NAME -d
 
-    sudo lxc-stop -n $CONTAINER_NAME
-    sudo lxc-destroy -n $CONTAINER_NAME
+    sleep 3
+
+    sudo lxc-attach -n $SNAPSHOT_NAME -- bash -c "
+        nohup python3 /root/stress.py > /root/stress.log 2>&1 &
+        sleep 1
+    "
+
+    CONTAINER_PID=$(sudo lxc-attach -n $SNAPSHOT_NAME -- pgrep -f "/root/stress.py")
+
+    if [[ -z "$CONTAINER_PID" ]]; then
+        continue
+    fi
+
+    sleep 2  
+    sudo lxc-attach -n $SNAPSHOT_NAME -- pidstat -h -r -u -p $CONTAINER_PID 1 1 | tee -a "$LOG_FILE"
+
+    sudo lxc-stop -n $SNAPSHOT_NAME
+    sudo lxc-destroy -n $SNAPSHOT_NAME
 
     sleep 2
 done
+
