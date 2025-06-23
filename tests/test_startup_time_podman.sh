@@ -16,7 +16,6 @@ for i in $(seq 1 $REPEATS); do
     >> record_time_podman.txt 2>&1;
 
     podman stop $CONTAINER_NAME;
-    #podman rm $CONTAINER_NAME;
 
     sleep 2;
 

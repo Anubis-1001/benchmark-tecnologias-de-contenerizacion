@@ -1,47 +1,35 @@
 #!/bin/bash
 
+CONTAINER_NAME="test-container"
 TEMPLATE="ubuntu"
-BASE_NAME="base-time"
-CONTAINER_NAME="test-time"
-REPEATS=10
-LOG_FILE="record_time_lxc.txt"
+REPEATS=5
 
-echo "Measuring LXC container startup time using template: $TEMPLATE"
+
+echo "Measuring LXC container startup time..."
+echo "Container name: $CONTAINER_NAME"
+echo "Template: $TEMPLATE"
 echo "Repeats: $REPEATS"
 echo ""
 
-# Prepare a base container if it doesn't exist
-if ! sudo lxc-info -n $BASE_NAME &>/dev/null; then
-    echo "[INFO] Creating base container '$BASE_NAME'"
-    sudo lxc-create -n $BASE_NAME -t $TEMPLATE
-    sudo lxc-stop -n $BASE_NAME 2>/dev/null
-fi
-
-# Clear log
-echo "" > "$LOG_FILE"
-
 for i in $(seq 1 $REPEATS); do
-    echo "Run #$i" | tee -a "$LOG_FILE"
+    echo "Run #$i"
 
-    # Remove previous container if exists
-    sudo lxc-stop -n $CONTAINER_NAME &>/dev/null
-    sudo lxc-destroy -n $CONTAINER_NAME &>/dev/null
 
-    # Clone from base to simulate a new container (snapshot mode)
-    /usr/bin/time -f "Elapsed time: %e seconds" \
-        sudo lxc-copy -n $BASE_NAME -N $CONTAINER_NAME -s \
-        >> "$LOG_FILE" 2>&1
+    sudo lxc-create -n $CONTAINER_NAME -t $TEMPLATE &>/dev/null
 
-    # Start the container
+    START=$(date +%s%N)
     sudo lxc-start -n $CONTAINER_NAME -d
+    while ! sudo lxc-info -n $CONTAINER_NAME | grep -q 'RUNNING'; do
+        sleep 0.1
+    done
+    END=$(date +%s%N)
 
-    # Wait a bit and stop the container
-    sleep 3
+    ELAPSED_NS=$((END - START))
+    ELAPSED_SEC=$(echo "scale=3; $ELAPSED_NS / 1000000000" | bc)
+    echo "Startup time: $ELAPSED_SEC seconds"
+    echo ""
+
     sudo lxc-stop -n $CONTAINER_NAME
     sudo lxc-destroy -n $CONTAINER_NAME
-
-    echo "" | tee -a "$LOG_FILE"
 done
-
-echo "Done. Results saved to $LOG_FILE."
 

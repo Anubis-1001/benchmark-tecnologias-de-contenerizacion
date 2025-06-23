@@ -4,12 +4,12 @@ IMAGE_NAME="docker.io/library/nginx:latest"
 CONTAINER_NAME="test-time"
 REPEATS=10
 
-echo "Pulling image $IMAGE_NAME"
-sudo ctr images pull $IMAGE_NAME
-
 echo "Measuring container startup time for image: $IMAGE_NAME"
 echo "Repeats: $REPEATS"
 echo ""
+
+sudo ctr images pull $IMAGE_NAME
+
 
 for i in $(seq 1 $REPEATS); do
     echo "Run #$i"

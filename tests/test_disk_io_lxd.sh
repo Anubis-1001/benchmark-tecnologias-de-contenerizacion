@@ -7,10 +7,6 @@ IMAGE=ubuntu:22.04
 
 for i in {1..10}
 do
-    echo "=== Iteration $i ===" | tee -a record_disk_io_lxd.txt
-
-    lxc stop fio-test --force 2>/dev/null
-    lxc delete fio-test 2>/dev/null
 
     lxc storage volume delete $STORAGE_POOL diskio-test-vol 2>/dev/null
 
