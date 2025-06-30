@@ -33,7 +33,7 @@ do
         continue
     fi
 
-    lxc exec $CONTAINER_NAME -- bash -c "pidstat -h -r -u -p $PID 1 1" | tee -a record_CPU_lxd.txt
+    lxc exec $CONTAINER_NAME -- bash -c "pidstat -h -r -u -p $PID 1 1" | tee -a results/record_CPU_lxd.txt
 
     lxc exec $CONTAINER_NAME -- kill -9 $PID
 
@@ -44,5 +44,5 @@ lxc stop $CONTAINER_NAME --force
 lxc delete $CONTAINER_NAME
 tmux kill-session -t $SESSION_NAME
 
-echo "Test complete. Results saved to record_CPU_lxd.txt"
+echo "Test complete. Results saved to results/record_CPU_lxd.txt"
 

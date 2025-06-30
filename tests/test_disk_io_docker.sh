@@ -18,7 +18,7 @@ do
 	    --numjobs=1 \
 	    --runtime=60 \
 	    --group_reporting \
-	    | grep -A 5 "clat percentiles" >> record_disk_io_docker.txt 2>&1
+	    | grep -A 5 "clat percentiles" >> results/record_disk_io_docker.txt 2>&1
 
 	docker volume rm diskio-test-vol
 	sleep 2;

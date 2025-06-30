@@ -18,7 +18,7 @@ for i in $(seq 1 $REPEATS); do
         $IMAGE_NAME \
         $CONTAINER_NAME \
         /bin/sh -c "sleep 5" \
-        >> record_time_containerd.txt 2>&1
+        >> results/record_time_containerd.txt 2>&1
 
     PID=$( ctr task ls | grep $CONTAINER_NAME | awk '{printf "%s\n", $2 }' )
 

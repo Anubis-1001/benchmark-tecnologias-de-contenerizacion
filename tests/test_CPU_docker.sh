@@ -6,7 +6,7 @@ do
 
 	PID=$(docker inspect -f '{{.State.Pid}}' test-container)
 
-	pidstat -h -r -u -p $PID 1 1 | tee -a record_CPU_docker.txt
+	pidstat -h -r -u -p $PID 1 1 | tee -a results/record_CPU_docker.txt
 
 
 	docker stop test-container

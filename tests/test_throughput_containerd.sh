@@ -12,7 +12,7 @@ ctr run --rm \
 --net-host \
 docker.io/networkstatic/iperf3:latest \
 $CONTAINER_NAME \
-iperf3 -c 127.0.0.1 -p 5401 >> record_throughput_containerd.txt 2>&1
+iperf3 -c 127.0.0.1 -p 5401 >> results/record_throughput_containerd.txt 2>&1
 
 kill -9 $pid_iperf
 

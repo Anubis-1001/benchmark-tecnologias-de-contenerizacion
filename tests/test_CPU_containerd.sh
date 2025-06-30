@@ -15,7 +15,7 @@ do
     PID=$(ctr task ls | grep test-container | awk '{print $2}')
 
     echo $PID === 
-    pidstat -h -r -u -p $PID 1 1 | tee -a record_CPU_containerd.txt
+    pidstat -h -r -u -p $PID 1 1 | tee -a results/record_CPU_containerd.txt
     
     kill -9 $PID
     ctr task delete test-container || true

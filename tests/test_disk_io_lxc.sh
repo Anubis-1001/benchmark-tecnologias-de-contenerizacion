@@ -34,7 +34,7 @@ for i in $(seq 1 $REPEATS); do
         --numjobs=1 \
         --runtime=60 \
         --group_reporting \
-        | grep -A 5 "clat percentiles" >> record_disk_io_lxc.txt 2>&1
+        | grep -A 5 "clat percentiles" >> results/record_disk_io_lxc.txt 2>&1
 
     sudo lxc-stop -n $CONTAINER_NAME
     sudo lxc-destroy -n $CONTAINER_NAME

@@ -17,7 +17,7 @@ sleep 3
 lxc exec $CONTAINER_NAME -- apt update -qq
 lxc exec $CONTAINER_NAME -- apt install -y -qq iperf3
 
-lxc exec $CONTAINER_NAME -- iperf3 -c 10.0.3.1 -p $SERVER_PORT >> record_throughput_lxd.txt 2>&1
+lxc exec $CONTAINER_NAME -- iperf3 -c 10.0.3.1 -p $SERVER_PORT >> results/record_throughput_lxd.txt 2>&1
 
 lxc delete --force $CONTAINER_NAME
 sleep 2

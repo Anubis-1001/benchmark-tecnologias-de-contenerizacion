@@ -13,7 +13,7 @@ for i in $(seq 1 $REPEATS); do
     echo "Run #$i"
     /usr/bin/time -f "Elapsed time: %e seconds" \
     lxc launch $IMAGE $CONTAINER_NAME \
-        >> record_time_lxd.txt 2>&1
+        >> results/record_time_lxd.txt 2>&1
 
     sleep 2
 

@@ -4,7 +4,7 @@ BASE_NAME="base-container"
 SNAPSHOT_NAME="test-container"
 TEMPLATE="ubuntu"
 STRESS_SCRIPT="../assets/stress.py"
-LOG_FILE="record_CPU_lxc.txt"
+LOG_FILE="results/record_CPU_lxc.txt"
 
 if ! sudo lxc-info -n $BASE_NAME &>/dev/null; then
     echo "[INFO] Creating base container '$BASE_NAME'"

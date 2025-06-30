@@ -19,7 +19,7 @@ sleep 5
 sudo lxc-attach -n $CONTAINER_NAME -- apt update
 sudo lxc-attach -n $CONTAINER_NAME -- apt install -y iperf3
 
-sudo lxc-attach -n $CONTAINER_NAME -- iperf3 -c $HOST_IP -p $PORT >> record_throughput_lxc.txt 2>&1
+sudo lxc-attach -n $CONTAINER_NAME -- iperf3 -c $HOST_IP -p $PORT >> results/record_throughput_lxc.txt 2>&1
 sleep 2
 
 kill -9 $pid_iperf

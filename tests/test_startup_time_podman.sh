@@ -13,7 +13,7 @@ for i in $(seq 1 $REPEATS); do
 
     /usr/bin/time -f "Elapsed time: %e seconds"  \
     podman run -itd --rm --name $CONTAINER_NAME $IMAGE_NAME \
-    >> record_time_podman.txt 2>&1;
+    >> results/record_time_podman.txt 2>&1;
 
     podman stop $CONTAINER_NAME;
 
