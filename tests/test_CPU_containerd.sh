@@ -8,8 +8,10 @@ IMAGE="docker.io/library/test-stress:latest"
 for x in {1..10}
 do
 
-
-    ctr run  -d --label test=true "$IMAGE" test-container
+    sudo ctr run --snapshotter btrfs \
+	-d --label test=true --runc-binary crun \
+	--runtime io.containerd.runc.v2 "$IMAGE" \
+	test-container sh
 
     sleep 3;
     PID=$(ctr task ls | grep test-container | awk '{print $2}')

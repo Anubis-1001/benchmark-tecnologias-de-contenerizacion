@@ -4,7 +4,7 @@
 for x in {1..10}
 do
 
-	podman run -itd --name test-container test-stress
+	podman run -itd --name test-container --network bridge test-stress
 
 	PID=$(podman inspect -f '{{.State.Pid}}' test-container)
 

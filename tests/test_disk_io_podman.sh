@@ -6,6 +6,7 @@ do
 
 	podman run --rm \
 	    --name fio-test \
+	    --network bridge \
 	    -v diskio-test-vol:/data \
 	    docker.io/xridge/fio \
 	    --name=write_test \

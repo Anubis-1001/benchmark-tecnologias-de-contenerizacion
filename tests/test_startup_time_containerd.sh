@@ -14,7 +14,8 @@ sudo ctr images pull $IMAGE_NAME
 for i in $(seq 1 $REPEATS); do
     echo "Run #$i"
     /usr/bin/time -f "Elapsed time: %e seconds" \
-    ctr run --detach \
+    ctr run --snapshotter btrfs --detach \
+	--runc-binary crun --runtime io.containerd.runc.v2 \
         $IMAGE_NAME \
         $CONTAINER_NAME \
         /bin/sh -c "sleep 5" \

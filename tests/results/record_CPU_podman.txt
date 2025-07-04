@@ -1,0 +1,40 @@
+Linux 6.8.0-62-generic (tg-benchmark) 	07/03/25 	_x86_64_	(1 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+02:44:35     1000     15580   99.00    0.00    0.00    2.00   99.00     0      0.00      0.00  161848   57600   2.88  python
+Linux 6.8.0-62-generic (tg-benchmark) 	07/03/25 	_x86_64_	(1 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+02:44:57     1000     15716  100.00    0.00    0.00    0.99  100.00     0      0.00      0.00  161848   57508   2.88  python
+Linux 6.8.0-62-generic (tg-benchmark) 	07/03/25 	_x86_64_	(1 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+02:45:20     1000     15796   96.04    3.96    0.00    2.97  100.00     0      0.00      0.00  161848   57548   2.88  python
+Linux 6.8.0-62-generic (tg-benchmark) 	07/03/25 	_x86_64_	(1 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+02:45:44     1000     15868   97.00    2.00    0.00    2.00   99.00     0      0.00      0.00  161848   57500   2.88  python
+Linux 6.8.0-62-generic (tg-benchmark) 	07/03/25 	_x86_64_	(1 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+02:46:06     1000     15939   99.02    0.00    0.00    0.98   99.02     0      0.00      0.00  161848   57596   2.88  python
+Linux 6.8.0-62-generic (tg-benchmark) 	07/03/25 	_x86_64_	(1 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+02:46:30     1000     16010   93.14    5.88    0.00    0.98   99.02     0      0.00      0.00  161848   57564   2.88  python
+Linux 6.8.0-62-generic (tg-benchmark) 	07/03/25 	_x86_64_	(1 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+02:46:53     1000     16082   98.00    3.00    0.00    1.00  101.00     0      0.00      0.00  161848   57580   2.88  python
+Linux 6.8.0-62-generic (tg-benchmark) 	07/03/25 	_x86_64_	(1 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+02:47:15     1000     16155  100.00    0.00    0.00    2.00  100.00     0      0.00      0.00  161848   57604   2.88  python
+Linux 6.8.0-62-generic (tg-benchmark) 	07/03/25 	_x86_64_	(1 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+02:47:38     1000     16227   95.10    2.94    0.00    0.98   98.04     0      0.00      0.00  161848   57600   2.88  python
+Linux 6.8.0-62-generic (tg-benchmark) 	07/03/25 	_x86_64_	(1 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+02:48:02     1000     16300   96.04    3.96    0.00    0.99  100.00     0      0.00      0.00  161848   57480   2.88  python

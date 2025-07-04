@@ -4,11 +4,11 @@ iperf3 -s -p 5401 &
 pid_iperf=$!
 
 CONTAINER_NAME="iperf3-client"
-
 sudo ctr images pull docker.io/networkstatic/iperf3:latest
 
 
-ctr run --rm \
+ctr run --snapshotter btrfs --rm \
+--runc-binary crun --runtime io.containerd.runc.v2 \
 --net-host \
 docker.io/networkstatic/iperf3:latest \
 $CONTAINER_NAME \

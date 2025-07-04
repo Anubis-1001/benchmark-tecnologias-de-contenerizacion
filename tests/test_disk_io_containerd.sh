@@ -11,7 +11,8 @@ do
     VOL_DIR="$BASE_VOL_DIR/vol_$i"
     mkdir -p "$VOL_DIR"
 
-    sudo ctr run --rm \
+    sudo ctr run --snapshotter btrfs --rm \
+	--runc-binary crun --runtime io.containerd.runc.v2 \
         --mount type=bind,src="$VOL_DIR",dst=/data,options=rbind:rw \
         docker.io/xridge/fio:latest \
         fio-test-$i \
