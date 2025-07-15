@@ -1,25 +1,28 @@
 #!/bin/bash
 
-STORAGE_POOL=default
+STORAGE_POOL=lxd-btrfs
 
 IMAGE=ubuntu:22.04
 
 
+
+lxc storage volume delete $STORAGE_POOL diskio-test-vol 2>/dev/null
+
+lxc storage volume create $STORAGE_POOL diskio-test-vol
+
+lxc launch $IMAGE fio-test
+
+lxc storage volume attach $STORAGE_POOL diskio-test-vol fio-test /mnt/data
+
+sleep 5
+
+lxc exec fio-test -- apt update -qq
+lxc exec fio-test -- apt install -y -qq fio
+
+
+ 
 for i in {1..10}
 do
-
-    lxc storage volume delete $STORAGE_POOL diskio-test-vol 2>/dev/null
-
-    lxc storage volume create $STORAGE_POOL diskio-test-vol
-
-    lxc launch $IMAGE fio-test
-
-    lxc storage volume attach $STORAGE_POOL diskio-test-vol fio-test /mnt/data
-
-    sleep 5
-
-    lxc exec fio-test -- apt update -qq
-    lxc exec fio-test -- apt install -y -qq fio
 
     lxc exec fio-test -- bash -c "
         fio --name=write_test \
@@ -34,10 +37,9 @@ do
             --group_reporting
     " | grep -A 5 "clat percentiles" >> results/record_disk_io_lxd.txt 2>&1
 
-    lxc stop fio-test --force
-    lxc delete fio-test
-    lxc storage volume delete $STORAGE_POOL diskio-test-vol
-
-    sleep 2
 done
 
+
+lxc stop fio-test --force
+lxc delete fio-test
+lxc storage volume delete $STORAGE_POOL diskio-test-vol

@@ -1,10 +1,40 @@
-Elapsed time: 0.60 seconds
-Elapsed time: 0.48 seconds
-Elapsed time: 0.47 seconds
-Elapsed time: 0.44 seconds
-Elapsed time: 0.43 seconds
-Elapsed time: 0.42 seconds
-Elapsed time: 0.47 seconds
-Elapsed time: 0.48 seconds
-Elapsed time: 0.47 seconds
-Elapsed time: 0.44 seconds
+da62f38dff3b0603d4b486be6ffd0ca39315e2c77d51f793f710a9868bd1c284
+Elapsed time: 1.37 seconds
+083a21f4123f4918ab4d4dd59a6f37a12c76b48f5623c91f89d2f60a3412b0e1
+Elapsed time: 1.21 seconds
+93dba0541999da3a2bb9c7c509503de1206fd0201e427857204796f44f65b501
+Elapsed time: 1.17 seconds
+762f2053a82bc1156b227927e8aa69731506031b1246496d7a41ca72d0cc2804
+Elapsed time: 1.17 seconds
+e3038f5fea90426121ffc376aa1ff981b7d29463578c953d9adadc421ff7292c
+Elapsed time: 1.17 seconds
+5f0f85cefd5d46e755f22e7339246486ef145d0643d625db4323189d416fcc76
+Elapsed time: 1.22 seconds
+1071e45a016801117063af47fdfb6f7bd4062518455aae6c9237699860212588
+Elapsed time: 1.36 seconds
+65d0cb80414944a7eac772d735c0d838acb4f16db6a5f5417b7c75d11773d35d
+Elapsed time: 1.38 seconds
+230c7e39c65798d7214ca9a409b969ea4b1fb0b21b4b668e318697c2e10c4af2
+Elapsed time: 1.14 seconds
+f4c1bbbaad8d164a6b885df681fc4e5c7946c43324f44feb51b02ee7235c0e1d
+Elapsed time: 1.18 seconds
+9ed134140dba627e2af95f49ba66c8505e27bb90afea80da5f589766e736526a
+Elapsed time: 1.28 seconds
+ba55bd6828521418d96409c5373265d5d068501293b71a595f4730feae8ff6be
+Elapsed time: 1.23 seconds
+7f4a1308403404db5e25f68a2e7cc1a186a512620a9a4f581918856250f31392
+Elapsed time: 1.15 seconds
+d23601507c7a3f07cf99db7c9c97d31ff2da4d430a8350b7fb16b4b03c88f4a4
+Elapsed time: 1.22 seconds
+57414485e12f30630e20bac16b2720c9486afd0bd8ababa9a75a4f0362f576b7
+Elapsed time: 1.13 seconds
+bf0c6a39e6dc2f68dc1536543b3741e1688b78ecae9357a891dcb9761e251184
+Elapsed time: 1.17 seconds
+901b7080f0ffacf82db6aa25d75cf0cac2b9b2d22710de1700581d91e883bd37
+Elapsed time: 1.30 seconds
+92be99b0aada5ddfbdb1b61d42eb68d3df0a41bc72a5cd1e30fbdb69f53fc525
+Elapsed time: 1.18 seconds
+5f5464386ade1e9def1eacbf8468631d83284f010b131897bda66066a026377c
+Elapsed time: 1.15 seconds
+e30935b58ca003116f749ede0e6f458c1f413f277ec47dd7844815668986c3f6
+Elapsed time: 1.17 seconds

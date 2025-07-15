@@ -1,31 +1,10 @@
-
-Run #1
-Elapsed time: 0.99 seconds
-
-Run #2
-Elapsed time: 0.12 seconds
-
-Run #3
-Elapsed time: 0.13 seconds
-
-Run #4
-Elapsed time: 0.14 seconds
-
-Run #5
-Elapsed time: 0.14 seconds
-
-Run #6
-Elapsed time: 0.13 seconds
-
-Run #7
-Elapsed time: 0.12 seconds
-
-Run #8
-Elapsed time: 0.14 seconds
-
-Run #9
-Elapsed time: 0.14 seconds
-
-Run #10
-Elapsed time: 0.12 seconds
-
+Startup time: 22.324 seconds
+Startup time: 19.737 seconds
+Startup time: 19.542 seconds
+Startup time: 16.942 seconds
+Startup time: 17.085 seconds
+Startup time: 17.911 seconds
+Startup time: 16.681 seconds
+Startup time: 17.260 seconds
+Startup time: 16.814 seconds
+Startup time: 16.974 seconds

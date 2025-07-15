@@ -2,13 +2,13 @@
 
 BASE_NAME="base-container"
 SNAPSHOT_NAME="test-container"
-TEMPLATE="ubuntu"
+TEMPLATE="download"
 STRESS_SCRIPT="../assets/stress.py"
 LOG_FILE="results/record_CPU_lxc.txt"
 
 if ! sudo lxc-info -n $BASE_NAME &>/dev/null; then
     echo "[INFO] Creating base container '$BASE_NAME'"
-    sudo lxc-create -n $BASE_NAME -t $TEMPLATE
+    sudo lxc-create -n $BASE_NAME -t $TEMPLATE -- --dist ubuntu --release jammy --arch amd64
     sudo lxc-start -n $BASE_NAME -d
     sleep 5
 
@@ -20,7 +20,8 @@ if ! sudo lxc-info -n $BASE_NAME &>/dev/null; then
     "
 
     echo "[INFO] Copying stress.py"
-    sudo cp "$STRESS_SCRIPT" "/var/lib/lxc/$BASE_NAME/rootfs/root/"
+    sudo lxc-attach -n $BASE_NAME -- mkdir -p /root
+    sudo lxc-attach -n $BASE_NAME -- bash -c "cat > /root/stress.py" < "$STRESS_SCRIPT"
 
     sudo lxc-stop -n $BASE_NAME
     echo "[INFO] Base container setup complete."
@@ -28,25 +29,24 @@ fi
 
 for i in {1..10}; do
 
-    sudo lxc-stop -n $SNAPSHOT_NAME 2>/dev/null
-    sudo lxc-destroy -n $SNAPSHOT_NAME 2>/dev/null
+    echo "Iteration $i"
 
     sudo lxc-copy -n $BASE_NAME -N $SNAPSHOT_NAME -s
     sudo lxc-start -n $SNAPSHOT_NAME -d
 
-    sleep 3
+    sleep 2
 
     sudo lxc-attach -n $SNAPSHOT_NAME -- bash -c "
-        nohup python3 /root/stress.py > /root/stress.log 2>&1 &
+        ls -l /root/stress.py
+        cat /root/stress.py
+        nohup python3 /root/stress.py &
         sleep 1
     "
 
     CONTAINER_PID=$(sudo lxc-attach -n $SNAPSHOT_NAME -- pgrep -f "/root/stress.py")
 
-    if [[ -z "$CONTAINER_PID" ]]; then
-        continue
-    fi
 
+    echo "Overcomed continue statement"
     sleep 2  
     sudo lxc-attach -n $SNAPSHOT_NAME -- pidstat -h -r -u -p $CONTAINER_PID 1 1 | tee -a "$LOG_FILE"
 

@@ -1,7 +1,9 @@
-
+#!/bin/bash
+#
 SERVER_PORT=5401
 CONTAINER_NAME="iperf3-client"
 IMAGE="ubuntu:22.04"
+
 
 iperf3 -s -p $SERVER_PORT &
 pid_iperf=$!
@@ -11,6 +13,8 @@ sleep 2
 
 
 lxc launch $IMAGE $CONTAINER_NAME
+
+lxc config show $CONTAINER_NAME --expanded | grep pool
 
 sleep 3
 

@@ -1,9 +1,8 @@
 #!/bin/bash
 
-ctr images pull docker.io/xridge/fio:latest
+sudo nerdctl --snapshotter btrfs pull docker.io/xridge/fio:latest
 
-BASE_VOL_DIR="/tmp/diskio-test"
-
+BASE_VOL_DIR="$HOME/diskio-test"
 mkdir -p "$BASE_VOL_DIR"
 
 for i in {1..10}
@@ -11,12 +10,12 @@ do
     VOL_DIR="$BASE_VOL_DIR/vol_$i"
     mkdir -p "$VOL_DIR"
 
-    sudo ctr run --snapshotter btrfs --rm \
-	--runc-binary crun --runtime io.containerd.runc.v2 \
-        --mount type=bind,src="$VOL_DIR",dst=/data,options=rbind:rw \
+    nerdctl run --rm \
+        --name fio-test-$i \
+        --snapshotter=btrfs \
+	--net=bridge \
+        -v "$VOL_DIR:/data:rw" \
         docker.io/xridge/fio:latest \
-        fio-test-$i \
-        fio \
         --name=write_test \
         --filename=/data/testfile \
         --size=1G \

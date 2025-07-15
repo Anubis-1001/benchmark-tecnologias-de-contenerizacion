@@ -1,28 +1,25 @@
 #!/bin/bash
 
-
 IMAGE="docker.io/library/test-stress:latest"
-
-
 
 for x in {1..10}
 do
+    sudo nerdctl run -d --name test-container\
+	--net=bridge \
+	--snapshotter=btrfs $IMAGE
 
-    sudo ctr run --snapshotter btrfs \
-	-d --label test=true --runc-binary crun \
-	--runtime io.containerd.runc.v2 "$IMAGE" \
-	test-container sh
+    PID=$(sudo nerdctl inspect --format '{{.State.Pid}}' test-container)
 
+    echo $PID ===
+    { sudo pidstat -h -r -u -p "$PID" 1 1 | sudo tee -a results/record_CPU_containerd.txt; } &
+    bg_id=$!
     sleep 3;
-    PID=$(ctr task ls | grep test-container | awk '{print $2}')
+    sudo kill -9 "$bg_id"
 
-    echo $PID === 
-    pidstat -h -r -u -p $PID 1 1 | tee -a results/record_CPU_containerd.txt
-    
-    kill -9 $PID
-    ctr task delete test-container || true
-    ctr container rm test-container
+
+    sudo ctr task kill -s SIGKILL test-container 2>/dev/null
+    sudo ctr task delete test-container --force 2>/dev/null
+    sudo nerdctl rm -f test-container 2>/dev/null
 
     sleep 2
 done
-

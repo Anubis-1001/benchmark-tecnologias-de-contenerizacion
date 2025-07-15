@@ -7,22 +7,27 @@ REPEATS=10
 
 mkdir -p $HOST_VOL_BASE
 
+sudo lxc-create -n $CONTAINER_NAME -t download -- -d $IMAGE -r focal -a amd64
+
+VOL_DIR="$HOST_VOL_BASE/vol"
+mkdir -p "$VOL_DIR"
+
+sudo mkdir -p /var/lib/lxc/$CONTAINER_NAME/rootfs/data
+
+echo "lxc.mount.entry = $VOL_DIR data none bind,create=dir 0 0" | sudo tee -a /var/lib/lxc/$CONTAINER_NAME/config
+
+sudo lxc-start -n $CONTAINER_NAME -d
+while ! sudo lxc-info -n $CONTAINER_NAME | grep -q "RUNNING"; do sleep 0.5; done
+sleep 3
+#######
+sudo lxc-attach -n $CONTAINER_NAME -- ls -ld /data
+sudo lxc-attach -n $CONTAINER_NAME -- apt update -qq
+sudo lxc-attach -n $CONTAINER_NAME -- apt install -y fio
+
+sudo lxc-attach -n $CONTAINER_NAME -- mkdir -p /data
+sudo lxc-attach -n $CONTAINER_NAME -- mount --bind /mnt /data
+
 for i in $(seq 1 $REPEATS); do
-
-    VOL_DIR="$HOST_VOL_BASE/vol-$i"
-    mkdir -p "$VOL_DIR"
-
-
-    sudo lxc-create -n $CONTAINER_NAME -t download -- -d $IMAGE -r focal -a amd64
-
-    echo "lxc.mount.entry = $VOL_DIR data none bind,create=dir 0 0" | sudo tee -a /var/lib/lxc/$CONTAINER_NAME/config
-
-    sudo lxc-start -n $CONTAINER_NAME -d
-    while ! sudo lxc-info -n $CONTAINER_NAME | grep -q "RUNNING"; do sleep 0.5; done
-    sleep 3
-
-    sudo lxc-attach -n $CONTAINER_NAME -- apt update -qq
-    sudo lxc-attach -n $CONTAINER_NAME -- apt install -y fio
 
     sudo lxc-attach -n $CONTAINER_NAME -- fio --name=write_test \
         --filename=/data/testfile \
@@ -36,9 +41,10 @@ for i in $(seq 1 $REPEATS); do
         --group_reporting \
         | grep -A 5 "clat percentiles" >> results/record_disk_io_lxc.txt 2>&1
 
-    sudo lxc-stop -n $CONTAINER_NAME
-    sudo lxc-destroy -n $CONTAINER_NAME
-    rm -rf "$VOL_DIR"
-    sleep 2
 done
 
+sudo lxc-stop -n $CONTAINER_NAME
+rm -rf "$VOL_DIR"
+sleep 2
+
+sudo lxc-destroy -n $CONTAINER_NAME
